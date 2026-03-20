@@ -20,18 +20,8 @@ vim.g.clipboard = {
   },
 }
 
--- lsp/lsp-zero
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
-
--- see :help lsp-zero-guide:integrate-with-mason-nvim
--- to learn how to use mason.nvim with lsp-zero
 require('mason').setup({})
+require("mason-lspconfig").setup()
 
 vim.lsp.config("lua_ls", {
   settings = {
@@ -42,18 +32,6 @@ vim.lsp.config("lua_ls", {
   }
 })
 
---refer to :h mason-lspconfig-automatic-server-setup
-local handlers = {
-  -- The first entry (without a key) will be the default handler
-  -- and will be called for each installed server that doesn't have
-  -- a dedicated handler.
-  -- lsp_zero.default_setup,
-  function(server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {}
-  end,
-}
-
-require("mason-lspconfig").setup({ handlers = handlers })
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -66,7 +44,6 @@ cmp.setup({
     { name = 'path' },
     { name = 'ultisnips' },
   },
-  formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -128,12 +105,4 @@ require("nvim-treesitter.configs").setup({
   additional_vim_regex_highlighting = true,
 })
 
---vim.o.background = "dark" -- or "light" for light mode
---vim.cmd([[colorscheme terafox]])
---vim.cmd([[colorscheme kanagawa-wave]])
---vim.cmd[[colorscheme dracula]]
---vim.cmd[[colorscheme dracula-soft]]
---vim.cmd([[colorscheme melange]])
 vim.cmd([[colorscheme catppuccin-mocha]])
---vim.cmd([[colorscheme gruvbox]])
---vim.cmd([[colorscheme tokyonight-moon]])

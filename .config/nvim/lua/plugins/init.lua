@@ -28,10 +28,21 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     lazy = true
   },
+  --
+  -- Autocompletion
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lua' },
+
+  -- Snippets
+  { 'L3MON4D3/LuaSnip' },
 
   -- install rust and then run the following to install a working version of tree-sitter-cli
   -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
-  { 'nvim-treesitter/nvim-treesitter',       build = ":TSUpdate" },
+  { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
   -- for using treesitter playground
   -- :TSInstall query
   "nvim-treesitter/playground",
