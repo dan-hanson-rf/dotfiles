@@ -37,12 +37,17 @@ local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      require 'luasnip'.lsp_expand(args.body)
+    end
+  },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'luasnip', option = { show_autosnippets = true } },
     { name = 'nvim_lua' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'ultisnips' },
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -51,6 +56,8 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 require('lualine').setup()
 
