@@ -29,9 +29,6 @@ set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
 set('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
 set('n', '<leader>fp', '<cmd>Telescope projectionist<cr>')
--- Treesitter
-set('n', '<leader>tsp', ':TSPlaygroundToggle<Return>')
-set('n', '<leader>tsu', ':TSUpdate<Return>')
 
 -- Fugitive git commands
 -- changing prefix to g for git instead of fugitive since f clashes with find

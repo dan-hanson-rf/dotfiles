@@ -42,13 +42,6 @@ return {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
   },
-  -- install rust and then run the following to install a working version of tree-sitter-cli
-  -- cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git
-  { 'nvim-treesitter/nvim-treesitter',       build = ":TSUpdate" },
-  -- for using treesitter playground
-  -- :TSInstall query
-  "nvim-treesitter/playground",
-  "lewis6991/spellsitter.nvim",
 
   {
     'nvim-telescope/telescope.nvim',
