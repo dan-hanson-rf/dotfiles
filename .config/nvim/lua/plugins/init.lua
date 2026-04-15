@@ -44,6 +44,12 @@ return {
   },
 
   {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate'
+  },
+
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       { 'BurntSushi/ripgrep' },

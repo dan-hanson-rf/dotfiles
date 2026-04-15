@@ -88,6 +88,14 @@ require('telescope').setup {
   }
 }
 
+
+require('nvim-treesitter').install { 'elixir', 'lua', 'vim', 'vimdoc', 'query' }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'elixir' },
+  callback = function() vim.treesitter.start() end,
+})
+
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
